@@ -1,0 +1,22 @@
+database created.
+
+for frontend/ client
+-> npm i vite
+-> npm run dev
+
+backend
+
+-> node -v
+-> npm i 
+-> node --watch index.js  
+
+http://localhost:5173/CourseForm
+http://localhost:5173/UploadCurrentTrends
+http://localhost:5173/upload-resource
+http://localhost:5173/resources
+
+
+
+
+
+ngrok http http://localhost:3000 

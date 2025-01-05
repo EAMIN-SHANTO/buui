@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #e6e6ff;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.animatedButton {
+  animation-duration: 10000ms;
+}
+
+.ql-container {
+  border: none !important;
+}
+.ql-toolbar {
+  border: none !important;
+}
+.ql-editor {
+  border: none !important;
+}
+
+@keyframes fillAnimation {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.loading-text {
+  animation: fillAnimation 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 1;
+}
+
+.course-card {
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.course-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.course-details.expanded {
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in;
+}
+
+.prerequisite-tag {
+  background-color: #fce7f3;
+  color: #9d174d;
+  border-radius: 9999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.search-input {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  padding-right: 2.5rem;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
