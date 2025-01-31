@@ -12,7 +12,7 @@ const Announcements = () => {
 
   const fetchAnnouncements = async () => {
     try {
-      const response = await axios.get('VITE_API_URL/api/announcements');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/announcements`);
       setAnnouncements(response.data);
     } catch (error) {
       toast.error('Error fetching announcements');

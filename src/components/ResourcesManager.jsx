@@ -11,7 +11,7 @@ const ResourcesManager = () => {
 
   const fetchResources = async () => {
     try {
-      const response = await axios.get('import.meta.env.VITE_API_URL/api/resources', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/resources`, {
         withCredentials: true
       });
       console.log('Resources:', response.data); // For debugging
@@ -25,7 +25,7 @@ const ResourcesManager = () => {
   const handleDeleteResource = async (resourceId) => {
     if (window.confirm('Are you sure you want to delete this resource?')) {
       try {
-        await axios.delete(`import.meta.env.VITE_API_URL/api/resources/${resourceId}`, {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/resources/${resourceId}`, {
           withCredentials: true
         });
         toast.success('Resource deleted successfully');
@@ -59,7 +59,7 @@ const ResourcesManager = () => {
               </td>
               <td className="border px-4 py-2 space-x-2">
                 <a
-                  href={`import.meta.env.VITE_API_URL/uploads/resources/${resource.file}`}
+                  href={`${import.meta.env.VITE_API_URL}L/uploads/resources/${resource.file}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-500 text-white px-2 py-1 rounded inline-block"

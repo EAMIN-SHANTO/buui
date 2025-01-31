@@ -27,7 +27,7 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post('import.meta.env.VITE_API_URL/usersp/logout');
+            await axios.post(`${import.meta.env.VITE_API_URL}/usersp/logout`);
             localStorage.removeItem('isLoggedIn');
             localStorage.removeItem('user');
             setIsLoggedIn(false);

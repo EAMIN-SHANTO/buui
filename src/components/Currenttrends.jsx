@@ -15,7 +15,7 @@ const CurrentTrends = () => {
 
   const fetchTrends = async () => {
     try {
-      const response = await axios.get('VITE_API_URL/api/trends');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/trends`);
       setTrends(response.data);
     } catch (error) {
       toast.error('Error fetching trends');

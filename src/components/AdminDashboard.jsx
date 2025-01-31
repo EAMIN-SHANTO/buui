@@ -30,7 +30,7 @@ const AdminDashboard = () => {
       setLoading(true);
       switch (activeTab) {
         case 'overview':
-          const statsResponse = await axios.get('VITE_API_URL/api/admin/stats', {
+          const statsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/stats`, {
             withCredentials: true
           });
           setStats({
@@ -41,13 +41,13 @@ const AdminDashboard = () => {
           });
           break;
         case 'users':
-          const usersResponse = await axios.get('VITE_API_URL/api/admin/users', {
+          const usersResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/users`, {
             withCredentials: true
           });
           setUsers(usersResponse.data);
           break;
         case 'announcements':
-          const announcementsResponse = await axios.get('VITE_API_URL/api/announcements', {
+          const announcementsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/announcements`, {
             withCredentials: true
           });
           setStats(prev => ({
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
 
   const handleUpdateUserRole = async (userId, newRole) => {
     try {
-      await axios.put(`VITE_API_URL/api/admin/users/${userId}/role`, 
+      await axios.put(`${import.meta.env.VITE_API_URL}L/api/admin/users/${userId}/role`, 
         { role: newRole },
         { withCredentials: true }
       );
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
   const handleAnnouncementSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('VITE_API_URL/api/announcements', newAnnouncement, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/announcements`, newAnnouncement, {
         withCredentials: true
       });
       toast.success('Announcement created successfully');
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
 
   const handleDeleteAnnouncement = async (id) => {
     try {
-      await axios.delete(`VITE_API_URL/api/announcements/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/announcements/${id}`, {
         withCredentials: true
       });
       toast.success('Announcement deleted successfully');
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this club?')) return;
 
     try {
-      await axios.delete(`VITE_API_URL/clubs/${clubId}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/clubs/${clubId}`, {
         withCredentials: true
       });
       toast.success('Club deleted successfully');

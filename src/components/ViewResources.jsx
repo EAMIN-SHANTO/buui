@@ -22,7 +22,7 @@ const ViewResources = () => {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await axios.get('import.meta.env.VITE_API_URL/usersp/profile', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/usersp/profile`, {
         withCredentials: true
       });
       console.log('Fetched user:', response.data);
@@ -35,7 +35,7 @@ const ViewResources = () => {
 
   const fetchResources = async () => {
     try {
-      const response = await axios.get('import.meta.env.VITE_API_URL/api/resources');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/resources`);
       setResources(response.data);
     } catch (error) {
       toast.error('Error fetching resources');
@@ -47,7 +47,7 @@ const ViewResources = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this resource?')) {
       try {
-        await axios.delete(`import.meta.env.VITE_API_URL/api/resources/${id}`, {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/resources/${id}`, {
           withCredentials: true
         });
         toast.success('Resource deleted successfully');
@@ -67,7 +67,7 @@ const ViewResources = () => {
     if (newTitle && newDesc && newCourse && newSemester) {
       try {
         const response = await axios.put(
-          `import.meta.env.VITE_API_URL/api/resources/${resource._id}`,
+          `${import.meta.env.VITE_API_URL}/api/resources/${resource._id}`,
           {
             title: newTitle,
             desc: newDesc,
@@ -175,7 +175,7 @@ const ViewResources = () => {
           <div key={resource._id} className="border rounded-lg p-4 shadow-sm">
             {resource.img && (
               <img
-                src={`import.meta.env.VITE_API_URL/uploads/resources/${resource.img}`}
+                src={`${import.meta.env.VITE_API_URL}/uploads/resources/${resource.img}`}
                 alt={resource.title}
                 className="w-full h-48 object-cover mb-4 rounded"
               />

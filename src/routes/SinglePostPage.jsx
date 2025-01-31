@@ -42,7 +42,7 @@ const SinglePostPage = () => {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await axios.get('import.meta.env.VITE_API_URL/usersp/profile', {
+      const response = await axios.get('${import.meta.env.VITE_API_URL}/usersp/profile', {
         withCredentials: true
       });
       setCurrentUser(response.data);
@@ -61,7 +61,7 @@ const SinglePostPage = () => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
-        await axios.delete(`import.meta.env.VITE_API_URL/posts/${post._id}`, {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/posts/${post._id}`, {
           withCredentials: true
         });
         toast.success('Post deleted successfully');
@@ -81,7 +81,7 @@ const SinglePostPage = () => {
       });
 
       await axios.put(
-        `import.meta.env.VITE_API_URL/posts/${post._id}`,
+        `${import.meta.env.VITE_API_URL}/posts/${post._id}`,
         formData,
         {
           withCredentials: true,

@@ -13,7 +13,7 @@ const ClubList = () => {
 
   const fetchClubs = async () => {
     try {
-      const response = await axios.get('VITE_API_URL/clubs');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/clubs`);
       setClubs(response.data);
     } catch (error) {
       toast.error('Error fetching clubs');

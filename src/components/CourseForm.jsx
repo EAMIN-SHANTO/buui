@@ -24,7 +24,7 @@ const CourseForm = () => {
         credits: Number(formData.credits)
       };
 
-      const response = await axios.post('VITE_API_URL/api/courses', formattedData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/courses`, formattedData);
       setMessage(response.data.message);
       setFormData({
         courseCode: '',

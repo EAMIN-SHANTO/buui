@@ -25,7 +25,7 @@ const CourseReview = () => {
     // Fetch courses
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('VITE_API_URL/api/courses/all');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses/all`);
         setCourses(response.data);
       } catch (error) {
         setError('Error fetching courses. Please try again later.');
@@ -39,7 +39,7 @@ const CourseReview = () => {
     if (selectedCourse) {
       const fetchReviews = async () => {
         try {
-          const response = await axios.get(`VITE_API_URL/api/courses/${selectedCourse}/reviews`);
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses/${selectedCourse}/reviews`);
           setReviews(response.data.reviews);
         } catch (error) {
           setError('Error fetching reviews. Please try again later.');
@@ -59,7 +59,7 @@ const CourseReview = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        `VITE_API_URL/api/courses/${selectedCourse}/reviews`,
+        `${import.meta.env.VITE_API_URL}/api/courses/${selectedCourse}/reviews`,
         newReview,
         {
           headers: { Authorization: `Bearer ${token}` }
@@ -67,7 +67,7 @@ const CourseReview = () => {
       );
       
       // Refresh reviews
-      const response = await axios.get(`VITE_API_URL/api/courses/${selectedCourse}/reviews`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses/${selectedCourse}/reviews`);
       setReviews(response.data.reviews);
       
       // Reset form

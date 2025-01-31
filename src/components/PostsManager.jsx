@@ -11,7 +11,7 @@ const PostsManager = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('import.meta.env.VITE_API_URL/posts', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`, {
         withCredentials: true
       });
       setPosts(response.data);
@@ -23,7 +23,7 @@ const PostsManager = () => {
   const handleDeletePost = async (postId) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
-        await axios.delete(`import.meta.env.VITE_API_URL/posts/${postId}`, {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/posts/${postId}`, {
           withCredentials: true
         });
         toast.success('Post deleted successfully');

@@ -13,7 +13,7 @@ const FeaturedPosts = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await axios.get('VITE_API_URL/posts', {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`, {
                 withCredentials: true
             });
             
@@ -52,7 +52,7 @@ const FeaturedPosts = () => {
                 <div className="w-full lg:w-1/2 flex flex-col gap-4">
                     {mainPost.img && (
                         <img 
-                            src={`VITE_API_URL/photos/${mainPost.img}`}
+                            src={`${import.meta.env.VITE_API_URL}/photos/${mainPost.img}`}
                             alt={mainPost.title}
                             className="rounded-3xl object-cover w-full h-[450px]"
                         />
