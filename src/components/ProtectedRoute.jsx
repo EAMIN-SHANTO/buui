@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children, roles }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/usersp/profile', {
+        const response = await axios.get('import.meta.env.VITE_API_URL/usersp/profile', {
           withCredentials: true
         });
         setUser(response.data);

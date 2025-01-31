@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
+import.meta.env
 const formatDateForInput = (dateString) => {
   if (!dateString) return '';
   const date = new Date(dateString);
@@ -28,7 +28,7 @@ const Events = () => {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/usersp/profile', {
+      const response = await axios.get('VITE_API_URL/usersp/profile', {
         withCredentials: true
       });
       setCurrentUser(response.data);
@@ -52,7 +52,7 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       const params = filter !== 'all' ? { type: filter } : {};
-      const response = await axios.get('http://localhost:3000/api/events', { 
+      const response = await axios.get('VITE_API_URL/api/events', { 
         params,
         withCredentials: true 
       });
@@ -83,7 +83,7 @@ const Events = () => {
         formData.append('image', newEvent.image);
       }
 
-      await axios.post('http://localhost:3000/api/events', formData, {
+      await axios.post('VITE_API_URL/api/events', formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -116,7 +116,7 @@ const Events = () => {
   const handleDeleteEvent = async (eventId) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        const response = await axios.delete(`http://localhost:3000/api/events/${eventId}`, {
+        const response = await axios.delete(`VITE_API_URL/api/events/${eventId}`, {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json'
@@ -178,7 +178,7 @@ const Events = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:3000/api/events/${editingEvent._id}`,
+        `VITE_API_URL/api/events/${editingEvent._id}`,
         formData,
         {
           withCredentials: true,
@@ -324,7 +324,7 @@ const Events = () => {
           <div key={event._id} className="border rounded-lg p-4 hover:shadow-lg">
             {event.image && (
               <img
-                src={`http://localhost:3000/uploads/events/${event.image}`}
+                src={`VITE_API_URL/uploads/events/${event.image}`}
                 alt={event.title}
                 className="w-full h-48 object-cover rounded mb-4"
               />

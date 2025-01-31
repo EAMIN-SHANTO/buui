@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import.meta.env
 const ClubForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ const ClubForm = () => {
         formDataToSend.append('image', image);
       }
 
-      await axios.post('http://localhost:3000/clubs', formDataToSend, {
+      await axios.post('VITE_API_URL/clubs', formDataToSend, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data'

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
+import.meta.env
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const Announcements = () => {
 
   const fetchAnnouncements = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/announcements');
+      const response = await axios.get('VITE_API_URL/api/announcements');
       setAnnouncements(response.data);
     } catch (error) {
       toast.error('Error fetching announcements');

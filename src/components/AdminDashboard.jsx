@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import ResourcesManager from './ResourcesManager';
 import PostsManager from './PostsManager';
 import { ActivityLineChart, UserDistributionChart } from './AdminCharts';
-
+import.meta.env
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [stats, setStats] = useState({
@@ -30,7 +30,7 @@ const AdminDashboard = () => {
       setLoading(true);
       switch (activeTab) {
         case 'overview':
-          const statsResponse = await axios.get('http://localhost:3000/api/admin/stats', {
+          const statsResponse = await axios.get('VITE_API_URL/api/admin/stats', {
             withCredentials: true
           });
           setStats({
@@ -41,13 +41,13 @@ const AdminDashboard = () => {
           });
           break;
         case 'users':
-          const usersResponse = await axios.get('http://localhost:3000/api/admin/users', {
+          const usersResponse = await axios.get('VITE_API_URL/api/admin/users', {
             withCredentials: true
           });
           setUsers(usersResponse.data);
           break;
         case 'announcements':
-          const announcementsResponse = await axios.get('http://localhost:3000/api/announcements', {
+          const announcementsResponse = await axios.get('VITE_API_URL/api/announcements', {
             withCredentials: true
           });
           setStats(prev => ({
@@ -76,7 +76,7 @@ const AdminDashboard = () => {
 
   const fetchClubs = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/clubs');
+      const response = await axios.get('VITE_API_URL/clubs');
       setClubs(response.data);
     } catch (error) {
       toast.error('Error fetching clubs');
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
 
   const handleUpdateUserRole = async (userId, newRole) => {
     try {
-      await axios.put(`http://localhost:3000/api/admin/users/${userId}/role`, 
+      await axios.put(`VITE_API_URL/api/admin/users/${userId}/role`, 
         { role: newRole },
         { withCredentials: true }
       );
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
   const handleAnnouncementSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/announcements', newAnnouncement, {
+      await axios.post('VITE_API_URL/api/announcements', newAnnouncement, {
         withCredentials: true
       });
       toast.success('Announcement created successfully');
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
 
   const handleDeleteAnnouncement = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/announcements/${id}`, {
+      await axios.delete(`VITE_API_URL/api/announcements/${id}`, {
         withCredentials: true
       });
       toast.success('Announcement deleted successfully');
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this club?')) return;
 
     try {
-      await axios.delete(`http://localhost:3000/clubs/${clubId}`, {
+      await axios.delete(`VITE_API_URL/clubs/${clubId}`, {
         withCredentials: true
       });
       toast.success('Club deleted successfully');
@@ -383,7 +383,7 @@ const AdminDashboard = () => {
                         className="h-10 w-10 rounded-full object-cover"
                         src={club.image?.startsWith('http') 
                           ? club.image 
-                          : `http://localhost:3000${club.image}`}
+                          : `VITE_API_URL${club.image}`}
                         alt={club.name}
                         onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/40?text=Club';

@@ -9,7 +9,7 @@ const LogoutButton = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/usersp/logout",
+        "import.meta.env.VITE_API_URL/usersp/logout",
         {},
         { withCredentials: true }
       );

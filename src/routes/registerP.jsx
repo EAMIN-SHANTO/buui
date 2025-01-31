@@ -13,7 +13,7 @@ const RegisterP = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/usersp/register",
+        "import.meta.env.VITE_API_URL/usersp/register",
         {
           username,
           email,

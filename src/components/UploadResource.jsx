@@ -35,7 +35,7 @@ const UploadResource = () => {
         data.append('img', file);
       }
 
-      const response = await axios.post('http://localhost:3000/api/resources', data, {
+      const response = await axios.post('import.meta.env.VITE_API_URL/api/resources', data, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data',

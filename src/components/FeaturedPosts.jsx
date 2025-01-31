@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-
+import.meta.env
 const FeaturedPosts = () => {
     const [featuredPosts, setFeaturedPosts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ const FeaturedPosts = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/posts', {
+            const response = await axios.get('VITE_API_URL/posts', {
                 withCredentials: true
             });
             
@@ -52,7 +52,7 @@ const FeaturedPosts = () => {
                 <div className="w-full lg:w-1/2 flex flex-col gap-4">
                     {mainPost.img && (
                         <img 
-                            src={`http://localhost:3000/photos/${mainPost.img}`}
+                            src={`VITE_API_URL/photos/${mainPost.img}`}
                             alt={mainPost.title}
                             className="rounded-3xl object-cover w-full h-[450px]"
                         />

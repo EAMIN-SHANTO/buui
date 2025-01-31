@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
+import.meta.env
 const ClubList = () => {
   const [clubs, setClubs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ const ClubList = () => {
 
   const fetchClubs = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/clubs');
+      const response = await axios.get('VITE_API_URL/clubs');
       setClubs(response.data);
     } catch (error) {
       toast.error('Error fetching clubs');
@@ -75,7 +75,7 @@ const ClubList = () => {
                   <img
                     src={club.image?.startsWith('http') 
                       ? club.image 
-                      : `http://localhost:3000${club.image}`}
+                      : `VITE_API_URL${club.image}`}
                     alt={club.name}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {

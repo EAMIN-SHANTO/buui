@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
+import.meta.env
 const DEFAULT_AVATAR = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
 
 const CurrentTrends = () => {
@@ -15,7 +15,7 @@ const CurrentTrends = () => {
 
   const fetchTrends = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/trends');
+      const response = await axios.get('VITE_API_URL/api/trends');
       setTrends(response.data);
     } catch (error) {
       toast.error('Error fetching trends');

@@ -14,7 +14,7 @@ const UploadCurrentTrends = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/trends", {
+      await axios.post("import.meta.env.VITE_API_URL/api/trends", {
         title,
         description,
         url: link,

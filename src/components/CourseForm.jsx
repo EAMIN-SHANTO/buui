@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import.meta.env
 const CourseForm = () => {
   const [formData, setFormData] = useState({
     courseCode: '',
@@ -24,7 +24,7 @@ const CourseForm = () => {
         credits: Number(formData.credits)
       };
 
-      const response = await axios.post('http://localhost:3000/api/courses', formattedData);
+      const response = await axios.post('VITE_API_URL/api/courses', formattedData);
       setMessage(response.data.message);
       setFormData({
         courseCode: '',

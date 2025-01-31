@@ -29,7 +29,7 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/usersp/profile", {
+      const response = await axios.get("import.meta.env.VITE_API_URL/usersp/profile", {
         withCredentials: true
       });
       setUser(response.data);
@@ -49,7 +49,7 @@ const Profile = () => {
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put("http://localhost:3000/usersp/profile", {
+      const response = await axios.put("import.meta.env.VITE_API_URL/usersp/profile", {
         username: newUsername,
         img: newImage
       });

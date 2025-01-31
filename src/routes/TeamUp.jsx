@@ -28,12 +28,12 @@ const TeamUp = () => {
     const loadData = async () => {
       try {
         setLoading(true);
-        const userResponse = await axios.get('http://localhost:3000/usersp/profile', {
+        const userResponse = await axios.get('import.meta.env.VITE_API_URL/usersp/profile', {
           withCredentials: true
         });
         setCurrentUser(userResponse.data);
         
-        const postsResponse = await axios.get('http://localhost:3000/api/teamup', {
+        const postsResponse = await axios.get('import.meta.env.VITE_API_URL/api/teamup', {
           withCredentials: true
         });
         setPosts(postsResponse.data);
@@ -63,7 +63,7 @@ const TeamUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/teamup', newPost, {
+      const response = await axios.post('import.meta.env.VITE_API_URL/api/teamup', newPost, {
         withCredentials: true
       });
       
@@ -89,7 +89,7 @@ const TeamUp = () => {
 
   const handleBookmark = async (postId) => {
     try {
-      await axios.post(`http://localhost:3000/api/teamup/${postId}/bookmark`, {}, {
+      await axios.post(`import.meta.env.VITE_API_URL/api/teamup/${postId}/bookmark`, {}, {
         withCredentials: true
       });
       toast.success('Bookmark toggled successfully');
@@ -101,7 +101,7 @@ const TeamUp = () => {
 
   const fetchComments = async (postId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/teamup/${postId}/comments`, {
+      const response = await axios.get(`import.meta.env.VITE_API_URL/api/teamup/${postId}/comments`, {
         withCredentials: true
       });
       setComments(response.data);
@@ -113,7 +113,7 @@ const TeamUp = () => {
   const handleAddComment = async (postId) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/teamup/${postId}/comments`,
+        `import.meta.env.VITE_API_URL/api/teamup/${postId}/comments`,
         { content: newComment },
         { withCredentials: true }
       );
@@ -134,7 +134,7 @@ const TeamUp = () => {
   const handleDeleteComment = async (postId, commentId) => {
     try {
       await axios.delete(
-        `http://localhost:3000/api/teamup/${postId}/comments/${commentId}`,
+        `import.meta.env.VITE_API_URL/api/teamup/${postId}/comments/${commentId}`,
         { withCredentials: true }
       );
       fetchComments(postId);
@@ -152,7 +152,7 @@ const TeamUp = () => {
     const handleReplySubmit = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:3000/api/teamup/${post._id}/comments/${comment._id}/reply`,
+          `import.meta.env.VITE_API_URL/api/teamup/${post._id}/comments/${comment._id}/reply`,
           { content: localReplyContent },
           { withCredentials: true }
         );
