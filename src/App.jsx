@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Homepage from "./routes/Homepage";
 import TeamUp from "./routes/TeamUp";
-import LoginP from "./routes/LoginP";
+import LoginP from "./routes/loginP";
 import RegisterP from "./routes/RegisterP";
 import Profile from "./routes/Profile";
 import Write from "./routes/Write";
