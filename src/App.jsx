@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Homepage from "./routes/Homepage";
 import TeamUp from "./routes/TeamUp";
 import LoginP from "./routes/loginP";
-import RegisterP from "./routes/RegisterP";
+import RegisterP from "./routes/registerP";
 import Profile from "./routes/Profile";
 import Write from "./routes/Write";
 import SinglePostPage from "./routes/SinglePostPage";
