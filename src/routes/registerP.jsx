@@ -13,7 +13,7 @@ const RegisterP = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "${import.meta.env.VITE_API_URL}/usersp/register",
+        `${import.meta.env.VITE_API_URL}/usersp/register`,
         {
           username,
           email,
